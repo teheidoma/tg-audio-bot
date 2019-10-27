@@ -29,11 +29,7 @@ class PropertiesReader{
     }
 
     fun read(key:String):String?{
-        val value = properties[key] as String?
-        if(value?.isBlank()!!) {
-            return null
-        }
-        return value
+        return properties[key] as String? ?: return null
     }
     fun readOrThrow(key: String):String{
         return read(key) ?: throw IllegalArgumentException("$key is not provided!")
